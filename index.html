@@ -52,14 +52,32 @@
 
     .logo {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       text-decoration: none;
+      line-height: 1;
     }
 
-    .logo svg {
-      height: 55px;
-      width: auto;
-      display: block;
+    .logo .brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      letter-spacing: -0.5px;
+      color: #0b1a33;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .logo .brand .highlight {
+      color: #2563eb;
+    }
+
+    .logo .subtitle {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-top: 1px;
+      font-family: 'Inter', sans-serif;
     }
 
     .nav-links {
@@ -991,10 +1009,34 @@
       align-items: center;
     }
 
-    .footer-logo svg {
-      height: 45px;
-      width: auto;
-      display: block;
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .footer-logo .brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .footer-logo .brand .highlight {
+      color: #2563eb;
+    }
+
+    .footer-logo .subtitle {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-top: 1px;
+      font-family: 'Inter', sans-serif;
     }
 
     .footer-links {
@@ -1103,11 +1145,17 @@
         padding: 1.8rem;
         margin: 1rem;
       }
-      .logo svg {
-        height: 45px;
+      .logo .brand {
+        font-size: 1.5rem;
       }
-      .footer-logo svg {
-        height: 36px;
+      .logo .subtitle {
+        font-size: 0.55rem;
+      }
+      .footer-logo .brand {
+        font-size: 1.3rem;
+      }
+      .footer-logo .subtitle {
+        font-size: 0.5rem;
       }
     }
 
@@ -1146,11 +1194,19 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      .logo svg {
-        height: 38px;
+      .logo .brand {
+        font-size: 1.3rem;
       }
-      .footer-logo svg {
-        height: 30px;
+      .logo .subtitle {
+        font-size: 0.5rem;
+        letter-spacing: 1px;
+      }
+      .footer-logo .brand {
+        font-size: 1.1rem;
+      }
+      .footer-logo .subtitle {
+        font-size: 0.45rem;
+        letter-spacing: 1px;
       }
     }
   </style>
@@ -1159,13 +1215,8 @@
   <header>
     <div class="container navbar">
       <a href="#inicio" class="logo">
-        <!-- Logo SVG exacto: alvatechmx con SOLUCIONES y TECNOLOGICAS en dos líneas -->
-        <svg viewBox="0 0 430 80" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="34" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#0b1a33" letter-spacing="-0.5">alvatech</text>
-          <text x="185" y="34" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#2563eb" letter-spacing="-0.5">mx</text>
-          <text x="0" y="60" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="2">SOLUCIONES</text>
-          <text x="0" y="76" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="2">TECNOLOGICAS</text>
-        </svg>
+        <span class="brand">alvatech<span class="highlight">mx</span></span>
+        <span class="subtitle">SOLUCIONESTECNOLOGICAS</span>
       </a>
       <button class="hamburger" id="menuToggle" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -1502,12 +1553,8 @@
     <div class="container">
       <div class="footer-content">
         <a href="#inicio" class="footer-logo">
-          <svg viewBox="0 0 430 65" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="28" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="-0.5">alvatech</text>
-            <text x="152" y="28" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#2563eb" letter-spacing="-0.5">mx</text>
-            <text x="0" y="48" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="2">SOLUCIONES</text>
-            <text x="0" y="61" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="2">TECNOLOGICAS</text>
-          </svg>
+          <span class="brand">alvatech<span class="highlight">mx</span></span>
+          <span class="subtitle">SOLUCIONESTECNOLOGICAS</span>
         </a>
         <div class="footer-links">
           <a href="#servicios">Software</a>
@@ -1517,7 +1564,7 @@
         </div>
       </div>
       <div class="footer-copy">
-        &copy; 2026 AlvaTechMX Soluciones Tecnológicas · Renta y venta de software e infraestructura TI
+        &copy; 2026 AlvaTechMX · Soluciones Tecnológicas
       </div>
     </div>
   </footer>
