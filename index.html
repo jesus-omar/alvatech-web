@@ -63,23 +63,21 @@
       font-size: 1.8rem;
       letter-spacing: -0.5px;
       color: #0b1a33;
+      font-family: 'Inter', sans-serif;
     }
 
-    .logo .brand span {
+    .logo .brand .highlight {
       color: #2563eb;
     }
 
     .logo .subtitle {
       font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: #64748b;
       text-transform: uppercase;
       margin-top: 1px;
-    }
-
-    .logo-icon {
-      display: none;
+      font-family: 'Inter', sans-serif;
     }
 
     .nav-links {
@@ -1012,33 +1010,33 @@
     }
 
     .footer-logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: white;
-      text-decoration: none;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      text-decoration: none;
       line-height: 1.1;
     }
 
     .footer-logo .brand {
       font-weight: 800;
       font-size: 1.5rem;
+      letter-spacing: -0.5px;
       color: white;
+      font-family: 'Inter', sans-serif;
     }
 
-    .footer-logo .brand span {
+    .footer-logo .brand .highlight {
       color: #2563eb;
     }
 
     .footer-logo .subtitle {
       font-size: 0.6rem;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: #94a3b8;
       text-transform: uppercase;
       margin-top: 1px;
+      font-family: 'Inter', sans-serif;
     }
 
     .footer-links {
@@ -1189,7 +1187,14 @@
       }
       .logo .subtitle {
         font-size: 0.55rem;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
+      }
+      .footer-logo .brand {
+        font-size: 1.2rem;
+      }
+      .footer-logo .subtitle {
+        font-size: 0.5rem;
+        letter-spacing: 1.5px;
       }
     }
   </style>
@@ -1198,7 +1203,7 @@
   <header>
     <div class="container navbar">
       <a href="#inicio" class="logo">
-        <span class="brand">alvatech<span>mx</span></span>
+        <span class="brand">alvatech<span class="highlight">mx</span></span>
         <span class="subtitle">SOLUCIONES TECNOLOGICAS</span>
       </a>
       <button class="hamburger" id="menuToggle" aria-label="Menú">
@@ -1536,7 +1541,7 @@
     <div class="container">
       <div class="footer-content">
         <a href="#inicio" class="footer-logo">
-          <span class="brand">alvatech<span>mx</span></span>
+          <span class="brand">alvatech<span class="highlight">mx</span></span>
           <span class="subtitle">SOLUCIONES TECNOLOGICAS</span>
         </a>
         <div class="footer-links">
