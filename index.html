@@ -52,32 +52,14 @@
 
     .logo {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       text-decoration: none;
-      line-height: 1.1;
     }
 
-    .logo .brand {
-      font-weight: 800;
-      font-size: 1.8rem;
-      letter-spacing: -0.5px;
-      color: #0b1a33;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .logo .brand .highlight {
-      color: #2563eb;
-    }
-
-    .logo .subtitle {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: #64748b;
-      text-transform: uppercase;
-      margin-top: 1px;
-      font-family: 'Inter', sans-serif;
+    .logo svg {
+      height: 50px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -1009,34 +991,10 @@
       align-items: center;
     }
 
-    .footer-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-decoration: none;
-      line-height: 1.1;
-    }
-
-    .footer-logo .brand {
-      font-weight: 800;
-      font-size: 1.5rem;
-      letter-spacing: -0.5px;
-      color: white;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .footer-logo .brand .highlight {
-      color: #2563eb;
-    }
-
-    .footer-logo .subtitle {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      margin-top: 1px;
-      font-family: 'Inter', sans-serif;
+    .footer-logo svg {
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .footer-links {
@@ -1145,6 +1103,12 @@
         padding: 1.8rem;
         margin: 1rem;
       }
+      .logo svg {
+        height: 40px;
+      }
+      .footer-logo svg {
+        height: 32px;
+      }
     }
 
     @media (max-width: 550px) {
@@ -1182,19 +1146,11 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      .logo .brand {
-        font-size: 1.4rem;
+      .logo svg {
+        height: 32px;
       }
-      .logo .subtitle {
-        font-size: 0.55rem;
-        letter-spacing: 1.5px;
-      }
-      .footer-logo .brand {
-        font-size: 1.2rem;
-      }
-      .footer-logo .subtitle {
-        font-size: 0.5rem;
-        letter-spacing: 1.5px;
+      .footer-logo svg {
+        height: 28px;
       }
     }
   </style>
@@ -1203,8 +1159,12 @@
   <header>
     <div class="container navbar">
       <a href="#inicio" class="logo">
-        <span class="brand">alvatech<span class="highlight">mx</span></span>
-        <span class="subtitle">SOLUCIONES TECNOLOGICAS</span>
+        <!-- Logo SVG exacto como en tu imagen -->
+        <svg viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="38" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#0b1a33" letter-spacing="-0.5">alvatech</text>
+          <text x="195" y="38" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="800" fill="#2563eb" letter-spacing="-0.5">mx</text>
+          <text x="0" y="68" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b" letter-spacing="2">SOLUCIONES TECNOLOGICAS</text>
+        </svg>
       </a>
       <button class="hamburger" id="menuToggle" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -1541,8 +1501,11 @@
     <div class="container">
       <div class="footer-content">
         <a href="#inicio" class="footer-logo">
-          <span class="brand">alvatech<span class="highlight">mx</span></span>
-          <span class="subtitle">SOLUCIONES TECNOLOGICAS</span>
+          <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="28" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff" letter-spacing="-0.5">alvatech</text>
+            <text x="150" y="28" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#2563eb" letter-spacing="-0.5">mx</text>
+            <text x="0" y="52" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="2">SOLUCIONES TECNOLOGICAS</text>
+          </svg>
         </a>
         <div class="footer-links">
           <a href="#servicios">Software</a>
