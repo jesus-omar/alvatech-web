@@ -1,1677 +1,2078 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AlvaTechMX · Soluciones Tecnológicas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1a33">
+  <meta name="description" content="AlvaTechMX ofrece servicios administrados de TI, soporte técnico, infraestructura, redes, servidores, ciberseguridad y soluciones para PYMES y corporativos.">
+  <title>AlvaTechMX | Servicios Administrados de TI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <style>
-    /* ---- RESET & BASE ---- */
+    :root {
+      --navy: #0b1a33;
+      --navy-light: #10294b;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --cyan: #24d5d0;
+      --green: #20c997;
+      --text: #1e293b;
+      --muted: #64748b;
+      --bg: #f8faff;
+      --border: #e2eaf7;
+      --white: #fff;
+      --radius: 24px;
+      --shadow: 0 18px 45px rgba(11,26,51,.08);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fafcff;
-      color: #1a1e2b;
-      line-height: 1.5;
+    html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
+      width: min(1320px, 100%);
+      margin: auto;
+      padding: 0 28px;
     }
 
-    /* ---- HEADER / NAV ---- */
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-white {
+      background: #fff;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--blue);
+      background: #eef4ff;
+      border: 1px solid #dce8ff;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .gradient-text {
+      color: var(--blue);
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 13px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 9px 24px rgba(37,99,235,.23);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--navy);
+      border-color: var(--border);
+      box-shadow: 0 5px 15px rgba(11,26,51,.04);
+    }
+
+    /* Navegación */
+
+    .site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(0, 20, 80, 0.05);
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid rgba(11,26,51,.07);
+      backdrop-filter: blur(16px);
     }
 
     .navbar {
+      min-height: 82px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.7rem 0;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
-      align-items: flex-start;
       text-decoration: none;
-      line-height: 1;
+      flex-shrink: 0;
     }
 
-    .logo .brand {
-      font-weight: 800;
-      font-size: 1.8rem;
-      letter-spacing: -0.5px;
-      color: #0b1a33;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .logo .brand .highlight {
-      color: #2563eb;
-    }
-
-    .logo .subtitle {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: #64748b;
-      text-transform: uppercase;
-      margin-top: 1px;
-      font-family: 'Inter', sans-serif;
+    .logo img {
+      width: 190px;
+      max-height: 65px;
+      object-fit: contain;
+      object-position: left center;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.8rem;
-      font-weight: 500;
       align-items: center;
+      gap: 25px;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #1f2937;
-      font-size: 1rem;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #2563eb;
-      transition: width 0.25s;
+      font-size: .91rem;
+      font-weight: 600;
+      color: #334155;
+      transition: color .2s;
     }
 
     .nav-links a:hover {
-      color: #2563eb;
+      color: var(--blue);
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
+    .nav-links .nav-cta {
+      background: var(--blue);
+      color: #fff;
+      padding: 11px 17px;
+      border-radius: 12px;
     }
 
-    .btn-outline-nav {
-      border: 1.5px solid #2563eb;
-      background: transparent;
-      padding: 0.5rem 1.5rem;
-      border-radius: 40px;
-      font-weight: 600;
-      color: #2563eb;
-      transition: all 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
+    .nav-links .nav-cta:hover {
+      background: var(--blue-dark);
+      color: #fff;
     }
 
-    .btn-outline-nav i {
-      margin-right: 6px;
-    }
-
-    .btn-outline-nav:hover {
-      background: #2563eb;
-      color: white;
-    }
-
-    .hamburger {
+    .menu-toggle {
       display: none;
-      flex-direction: column;
-      gap: 5px;
+      border: 0;
       background: transparent;
-      border: none;
+      color: var(--navy);
+      font-size: 1.5rem;
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 8px;
     }
 
-    .hamburger span {
-      display: block;
-      width: 28px;
-      height: 3px;
-      background: #1f2937;
-      border-radius: 4px;
-      transition: 0.3s;
-    }
+    /* Portada */
 
-    /* ---- HERO ---- */
     .hero {
-      padding: 3.5rem 0 5rem;
-      display: flex;
-      flex-wrap: wrap;
+      padding-top: 54px;
+      padding-bottom: 70px;
+      display: grid;
+      grid-template-columns: minmax(330px,.88fr) minmax(0,1.12fr);
+      gap: 36px;
       align-items: center;
-      justify-content: space-between;
-      gap: 3rem;
     }
 
-    .hero-content {
-      flex: 1 1 500px;
+    .hero-copy {
+      padding: 18px 0;
     }
 
     .hero-badge {
-      background: #eef4ff;
-      color: #1d4ed8;
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 0.3rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #dce8ff;
+      background: #f4f8ff;
       border-radius: 40px;
-      display: inline-block;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.3px;
+      padding: 10px 17px;
+      color: #10336e;
+      font-size: .86rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(37,99,235,.05);
     }
 
-    .hero-content h1 {
-      font-size: 3.6rem;
+    .hero-badge .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .hero h1 {
+      color: var(--navy);
+      font-size: clamp(2.8rem, 4.6vw, 4.6rem);
+      line-height: 1.04;
+      letter-spacing: -2.8px;
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      color: #0b1a33;
-      margin-bottom: 1.2rem;
+      margin-bottom: 25px;
     }
 
-    .hero-content h1 span {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero h1 span {
+      color: var(--blue);
     }
 
-    .hero-content p {
-      font-size: 1.2rem;
+    .hero-description {
       color: #475569;
-      max-width: 540px;
-      margin-bottom: 2.2rem;
-      font-weight: 400;
+      font-size: clamp(1.05rem,1.5vw,1.3rem);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 580px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
     }
 
-    .btn-primary {
-      background: #2563eb;
-      border: none;
-      padding: 0.9rem 2.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: white;
-      font-size: 1rem;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
-      transition: all 0.2s;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-    }
-
-    .btn-primary i {
-      font-size: 0.9rem;
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
-    }
-
-    .hero-image {
-      flex: 1 1 400px;
-      background: linear-gradient(145deg, #eef4ff, #ffffff);
-      padding: 1.5rem;
-      border-radius: 40px;
-      text-align: center;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
-    }
-
-    .hero-image i {
-      font-size: 8rem;
-      color: #2563eb;
-      opacity: 0.9;
-      margin: 1rem 0;
-    }
-
-    .hero-image p {
-      font-weight: 600;
-      color: #0b1a33;
-    }
-
-    .hero-badges {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-badges .badge-icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      background: white;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      border: 1px solid #e9edf5;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #475569;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    }
-
-    .hero-badges .badge-icon i {
-      font-size: 1.4rem;
-      color: #2563eb;
-      margin: 0;
-    }
-
-    .stat-grid {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #0b1a33;
-    }
-
-    .stat-label {
-      color: #64748b;
-      font-weight: 400;
-      font-size: 0.9rem;
-    }
-
-    /* ---- SERVICES ---- */
-    .services {
-      padding: 5rem 0;
-      background: #ffffff;
-      border-radius: 60px 60px 0 0;
-      margin-top: 1rem;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 4rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: #0b1a33;
-    }
-
-    .section-header p {
-      color: #475569;
-      font-size: 1.15rem;
-      margin-top: 0.8rem;
-    }
-
-    .card-grid {
+    .hero-benefits {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 17px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .benefit-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      background: #e7f2ff;
+      border-radius: 50%;
+      font-size: 1.1rem;
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: .85rem;
+      line-height: 1.35;
+      color: var(--navy);
+      margin: 3px 0 5px;
+    }
+
+    .benefit small {
+      display: block;
+      color: var(--muted);
+      font-size: .75rem;
+      line-height: 1.5;
+    }
+
+    /* Panel de monitoreo */
+
+    .hero-visual {
+      min-width: 0;
+      padding: 17px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 85% 5%,rgba(37,99,235,.15),transparent 34%),
+        linear-gradient(145deg,#eef5ff,#fff 75%);
+      border: 1px solid #e0eafb;
+      box-shadow: 0 24px 60px rgba(11,26,51,.10);
+      overflow: hidden;
+    }
+
+    .dashboard {
+      background: #061a35;
+      color: #f8fbff;
+      border: 1px solid #214a78;
+      border-radius: 18px;
+      padding: 17px;
+      box-shadow: 0 18px 40px rgba(5,24,54,.26);
+    }
+
+    .dashboard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(148,187,230,.18);
+    }
+
+    .dashboard-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .dashboard-brand i {
+      color: #48a0ff;
+      font-size: 1.2rem;
+    }
+
+    .dashboard-label {
+      color: #a9c4e5;
+      font-size: .69rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dashboard-label span {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 105px minmax(0,1fr);
+      gap: 13px;
+      padding-top: 15px;
+    }
+
+    .dashboard-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .dashboard-menu span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 7px;
+      border-radius: 8px;
+      color: #a8c0df;
+      font-size: .66rem;
+    }
+
+    .dashboard-menu .selected {
+      color: #fff;
+      background: #1264e8;
+    }
+
+    .dashboard-main {
+      min-width: 0;
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 8px;
+    }
+
+    .dashboard-stat {
+      padding: 11px;
+      min-width: 0;
+      background: #0c2a4e;
+      border: 1px solid rgba(130,177,228,.12);
+      border-radius: 11px;
+    }
+
+    .dashboard-stat-label {
+      color: #b6cce5;
+      font-size: .67rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dashboard-stat-label i {
+      color: var(--cyan);
+    }
+
+    .dashboard-stat strong {
+      display: block;
+      margin-top: 8px;
+      color: #fff;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .dashboard-stat small {
+      display: block;
+      margin-top: 5px;
+      color: #91afd0;
+      font-size: .61rem;
+    }
+
+    .dashboard-charts {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .chart-card {
+      padding: 12px;
+      min-width: 0;
+      background: #0c2a4e;
+      border: 1px solid rgba(130,177,228,.12);
+      border-radius: 11px;
+    }
+
+    .chart-card h3 {
+      font-size: .74rem;
+      font-weight: 600;
+      color: #eaf3ff;
+      margin-bottom: 13px;
+    }
+
+    .chart-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 11px;
+      flex-wrap: wrap;
+      color: #a8c0df;
+      font-size: .63rem;
+      margin-top: 8px;
+    }
+
+    .chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .chart-legend i {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+    }
+
+    .chart-legend span:last-child i {
+      background: #4285ff;
+    }
+
+    .service-status-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .service-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 7px;
+      color: #b8cde5;
+      font-size: .65rem;
+    }
+
+    .service-status span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .service-status i {
+      color: var(--cyan);
+    }
+
+    .service-status strong {
+      font-size: .64rem;
+      color: #fff;
+      text-align: right;
+    }
+
+    .visual-categories {
+      display: grid;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: 9px;
+      margin-top: 13px;
+    }
+
+    .visual-category {
+      min-width: 0;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 11px 6px;
+      border: 1px solid #dfebfb;
+      border-radius: 15px;
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 7px 20px rgba(37,99,235,.05);
+    }
+
+    .visual-category > i {
+      color: var(--blue);
+      font-size: 1.65rem;
+      margin-bottom: 9px;
+    }
+
+    .visual-category strong {
+      color: var(--navy);
+      font-size: .8rem;
+    }
+
+    .visual-category span {
+      color: var(--muted);
+      font-size: .65rem;
+      line-height: 1.4;
+      margin-top: 5px;
+    }
+
+    .demo-note {
+      text-align: right;
+      color: #64748b;
+      font-size: .68rem;
+      margin: 10px 2px 0;
+    }
+
+    /* Servicios */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 22px;
     }
 
     .service-card {
+      padding: 30px;
+      border-radius: var(--radius);
       background: #f8faff;
-      padding: 2.2rem 1.8rem;
-      border-radius: 32px;
-      transition: all 0.25s;
-      border: 1px solid rgba(37, 99, 235, 0.06);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.01);
+      border: 1px solid #e7edf8;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
-      background: white;
-      border-color: #2563eb20;
-      box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.15);
+      transform: translateY(-5px);
+      border-color: #c8dcff;
+      box-shadow: var(--shadow);
     }
 
     .service-icon {
-      background: #eef4ff;
-      width: 64px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      color: #2563eb;
+      width: 58px;
+      height: 58px;
+      border-radius: 17px;
+      background: #eaf2ff;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
     }
 
     .service-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.7rem;
+      color: var(--navy);
+      font-size: 1.22rem;
+      margin-bottom: 12px;
+      line-height: 1.35;
     }
 
     .service-card p {
-      color: #475569;
-      font-weight: 400;
+      color: #64748b;
+      font-size: .94rem;
     }
 
     .service-tag {
       display: inline-block;
-      margin-top: 1.5rem;
-      font-weight: 600;
-      color: #2563eb;
-      font-size: 0.9rem;
-      border-bottom: 1.5px dashed #2563eb60;
-      padding-bottom: 2px;
-    }
-
-    /* ---- INFRAESTRUCTURA (centrada) ---- */
-    .infra-section {
-      padding: 4rem 0 5rem;
-      background: #fafcff;
-    }
-
-    .infra-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .infra-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .infra-header h2 {
-      font-size: 2.6rem;
+      color: var(--blue);
+      background: #eef4ff;
+      border-radius: 30px;
+      padding: 7px 11px;
+      margin-top: 18px;
+      font-size: .75rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #0b1a33;
     }
 
-    .infra-header h2 i {
-      color: #2563eb;
-      margin-right: 10px;
+    /* Servicio administrado destacado */
+
+    .managed {
+      background: linear-gradient(135deg,#0b1a33,#10315a);
+      color: #fff;
+      border-radius: 30px;
+      padding: 45px;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
     }
 
-    .infra-header p {
-      color: #475569;
-      font-size: 1.1rem;
-      margin-top: 0.8rem;
-      max-width: 550px;
-      margin-left: auto;
-      margin-right: auto;
+    .managed h3 {
+      font-size: clamp(1.7rem,3vw,2.4rem);
+      line-height: 1.2;
+      margin-bottom: 15px;
     }
+
+    .managed p {
+      color: #c6d5e9;
+      margin-bottom: 20px;
+    }
+
+    .managed-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .managed-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      color: #eaf2ff;
+      font-size: .9rem;
+    }
+
+    .managed-list i {
+      color: #62e6c1;
+      margin-top: 5px;
+    }
+
+    .managed-options {
+      display: grid;
+      gap: 13px;
+    }
+
+    .managed-option {
+      padding: 20px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 17px;
+    }
+
+    .managed-option h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .managed-option p {
+      font-size: .88rem;
+      margin: 0;
+    }
+
+    /* Infraestructura */
 
     .infra-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 25px;
       align-items: stretch;
     }
 
     .infra-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      display: grid;
+      gap: 12px;
     }
 
-    .infra-list-item {
+    .infra-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      background: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 60px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-      border: 1px solid #e9edf5;
-      font-weight: 500;
+      gap: 15px;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 19px;
+      border-radius: 15px;
+      font-weight: 600;
+      color: var(--navy);
     }
 
-    .infra-list-item i {
-      color: #2563eb;
-      font-size: 1.2rem;
-    }
-
-    .infra-visual {
-      background: linear-gradient(145deg, #ffffff, #f2f7ff);
-      padding: 2rem 2rem 2.5rem;
-      border-radius: 48px;
+    .infra-item i {
+      color: var(--blue);
+      font-size: 1.3rem;
+      width: 27px;
       text-align: center;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.04);
-      border: 1px solid #e9edf5;
+    }
+
+    .infra-feature {
+      padding: 34px;
+      background: linear-gradient(145deg,#fff,#f0f6ff);
+      border: 1px solid var(--border);
+      border-radius: 25px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .infra-visual .icon-main {
-      font-size: 4rem;
-      color: #2563eb;
-      opacity: 0.85;
-      margin-bottom: 0.5rem;
+    .infra-feature > i {
+      color: var(--blue);
+      font-size: 3.5rem;
+      margin-bottom: 17px;
     }
 
-    .infra-visual h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #0b1a33;
-      margin-bottom: 1rem;
+    .infra-feature h3 {
+      color: var(--navy);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
     }
 
-    .infra-visual .badge-container {
+    .infra-feature p {
+      color: var(--muted);
+    }
+
+    .infra-pills {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
+      gap: 9px;
+      margin-top: 20px;
     }
 
-    .infra-visual .badge-item {
-      background: white;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      border: 1px solid #e9edf5;
+    .infra-pills span {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: #334155;
+      border-radius: 30px;
+      padding: 8px 12px;
+      font-size: .78rem;
       font-weight: 600;
-      font-size: 0.85rem;
-      color: #0b1a33;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
-    .infra-visual .badge-item i {
-      color: #2563eb;
-      font-size: 1rem;
-    }
-
-    .infra-visual .highlight-tag {
-      display: inline-block;
-      background: #2563eb20;
-      padding: 0.4rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 600;
-      color: #2563eb;
-      font-size: 0.8rem;
-      margin-top: 1.2rem;
-    }
-
-    /* ---- SOBRE NOSOTROS ---- */
-    .about-section {
-      padding: 4rem 0;
-      background: white;
-    }
+    /* Nosotros */
 
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
       align-items: center;
+      gap: 45px;
     }
 
-    .about-text h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #0b1a33;
-      margin-bottom: 1.2rem;
+    .about-copy h2 {
+      color: var(--navy);
+      font-size: clamp(2rem,3.5vw,2.8rem);
+      line-height: 1.2;
+      margin-bottom: 18px;
     }
 
-    .about-text p {
-      color: #475569;
-      font-size: 1.05rem;
-      margin-bottom: 1.2rem;
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 15px;
     }
 
-    .about-text .highlight {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin: 1rem 0;
-      font-weight: 500;
-    }
-
-    .about-text .highlight i {
-      color: #2563eb;
-      font-size: 1.4rem;
-      width: 2rem;
-    }
-
-    .about-image {
-      background: linear-gradient(145deg, #eef4ff, #ffffff);
-      padding: 2.5rem;
-      border-radius: 48px;
-      text-align: center;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.04);
-    }
-
-    .about-image i {
-      font-size: 7rem;
-      color: #2563eb;
-      opacity: 0.8;
-    }
-
-    .about-image p {
-      margin-top: 1rem;
-      font-weight: 600;
-      color: #0b1a33;
-    }
-
-    /* ---- BLOG / RECURSOS ---- */
-    .blog-section {
-      padding: 4rem 0;
-      background: #fafcff;
-    }
-
-    .blog-grid {
+    .about-points {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
+      gap: 13px;
+      margin-top: 22px;
     }
 
-    .blog-card {
-      background: white;
-      padding: 1.8rem;
-      border-radius: 32px;
-      border: 1px solid #e9edf5;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.04);
-    }
-
-    .blog-card .tag {
-      background: #eef4ff;
-      color: #2563eb;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      display: inline-block;
-      margin-bottom: 0.8rem;
-    }
-
-    .blog-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .blog-card p {
-      color: #475569;
-      font-size: 0.95rem;
-    }
-
-    .blog-card .read-more {
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1rem;
-      cursor: pointer;
-    }
-
-    .blog-card .read-more i {
-      margin-left: 4px;
-      transition: transform 0.2s;
-    }
-
-    .blog-card .read-more:hover i {
-      transform: translateX(4px);
-    }
-
-    /* ---- MODAL ---- */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .modal-overlay.active {
+    .about-point {
       display: flex;
-    }
-
-    .modal-content {
-      background: white;
-      max-width: 700px;
-      width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 2.5rem;
-      border-radius: 40px;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
-      position: relative;
-      animation: modalIn 0.3s ease;
-    }
-
-    @keyframes modalIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: #64748b;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-
-    .modal-close:hover {
-      color: #0b1a33;
-    }
-
-    .modal-content .tag {
-      background: #eef4ff;
-      color: #2563eb;
-      font-size: 0.7rem;
+      gap: 11px;
+      align-items: flex-start;
       font-weight: 600;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
+      color: #334155;
+    }
+
+    .about-point i {
+      color: var(--blue);
+      margin-top: 5px;
+    }
+
+    .about-panel {
+      padding: 38px;
+      border-radius: 26px;
+      background: linear-gradient(145deg,#eef4ff,#fff);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .about-panel > i {
+      font-size: 4rem;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+
+    .about-panel h3 {
+      color: var(--navy);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+    }
+
+    /* Recursos */
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .resource-card {
+      padding: 26px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 21px;
+      box-shadow: 0 6px 20px rgba(11,26,51,.025);
+    }
+
+    .resource-tag {
       display: inline-block;
-      margin-bottom: 1rem;
+      background: #eef4ff;
+      color: var(--blue);
+      border-radius: 30px;
+      padding: 6px 10px;
+      font-size: .74rem;
+      font-weight: 700;
+      margin-bottom: 15px;
     }
 
-    .modal-content h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #0b1a33;
+    .resource-card h3 {
+      color: var(--navy);
+      font-size: 1.15rem;
+      line-height: 1.4;
+      margin-bottom: 11px;
     }
 
-    .modal-content p {
-      color: #475569;
-      margin-bottom: 1rem;
-      line-height: 1.7;
+    .resource-card p {
+      color: var(--muted);
+      font-size: .92rem;
     }
 
-    .modal-content .bibliography {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #e9edf5;
-    }
-
-    .modal-content .bibliography h5 {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .modal-content .bibliography ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .modal-content .bibliography ul li {
-      font-size: 0.85rem;
-      color: #64748b;
-      padding: 0.2rem 0;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .modal-content .bibliography ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #2563eb;
-    }
-
-    /* ---- FAQ ---- */
-    .faq-section {
-      padding: 4rem 0;
-      background: white;
-    }
+    /* FAQ */
 
     .faq-list {
-      max-width: 800px;
-      margin: 2.5rem auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+      max-width: 850px;
+      margin: auto;
+      display: grid;
+      gap: 12px;
     }
 
     .faq-item {
       background: #f8faff;
-      padding: 1.5rem 2rem;
-      border-radius: 60px;
-      border: 1px solid #e9edf5;
-      transition: 0.2s;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
     }
 
-    .faq-item:hover {
-      background: white;
-      border-color: #2563eb30;
-    }
-
-    .faq-item h4 {
-      font-weight: 600;
+    .faq-question {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      width: 100%;
+      padding: 20px 22px;
+      text-align: left;
+      color: var(--navy);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
     }
 
-    .faq-item h4 i {
-      color: #2563eb;
-      font-size: 1.2rem;
+    .faq-question i {
+      color: var(--blue);
+      transition: transform .2s;
     }
 
-    .faq-item p {
-      color: #475569;
-      margin-top: 0.6rem;
-      padding-right: 2rem;
+    .faq-question[aria-expanded="true"] i {
+      transform: rotate(180deg);
     }
 
-    /* ---- CONTACTO / FORMULARIO ---- */
-    .contact-section {
-      padding: 4rem 0;
-      background: #fafcff;
-      scroll-margin-top: 80px;
+    .faq-answer {
+      display: none;
+      padding: 0 22px 21px;
+      color: var(--muted);
     }
 
-    .contact-wrapper {
+    .faq-answer.open {
+      display: block;
+    }
+
+    /* Contacto */
+
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 38px;
       align-items: start;
     }
 
+    .contact-info {
+      padding: 15px 0;
+    }
+
     .contact-info h3 {
+      color: var(--navy);
       font-size: 2rem;
-      font-weight: 700;
-      color: #0b1a33;
-      margin-bottom: 0.8rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
     }
 
-    .contact-info p {
-      color: #475569;
-      margin-bottom: 1.8rem;
+    .contact-info > p {
+      color: var(--muted);
+      margin-bottom: 25px;
     }
 
-    .contact-info .detail {
+    .contact-detail {
       display: flex;
+      gap: 13px;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      margin: 17px 0;
+      color: #334155;
+      overflow-wrap: anywhere;
     }
 
-    .contact-info .detail i {
-      color: #2563eb;
-      font-size: 1.4rem;
-      width: 2rem;
+    .contact-detail i {
+      width: 23px;
+      color: var(--blue);
+      font-size: 1.2rem;
+    }
+
+    .contact-detail a {
+      text-decoration: none;
+    }
+
+    .contact-detail a:hover {
+      color: var(--blue);
     }
 
     .contact-form {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 40px;
-      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.06);
-      border: 1px solid #e9edf5;
-    }
-
-    .contact-form label {
-      font-weight: 600;
-      display: block;
-      margin-top: 1.2rem;
-      margin-bottom: 0.3rem;
-      color: #1e293b;
-    }
-
-    .contact-form label:first-of-type {
-      margin-top: 0;
-    }
-
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
-      width: 100%;
-      padding: 0.8rem 1.2rem;
-      border-radius: 40px;
-      border: 1px solid #d1d9e6;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      transition: 0.2s;
-      background: #fafcff;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .contact-form textarea {
+      padding: 30px;
       border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: #334155;
+      font-size: .87rem;
+      font-weight: 700;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid #d5deeb;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--text);
+      background: #fbfdff;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+    }
+
+    .form-field textarea {
       resize: vertical;
       min-height: 120px;
     }
 
-    .contact-form .btn-submit {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 0.9rem 2.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 1.8rem;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
+    .contact-form .btn {
+      margin-top: 20px;
     }
 
-    .contact-form .btn-submit:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+    .form-note {
+      color: var(--muted);
+      font-size: .77rem;
+      margin-top: 12px;
     }
 
-    /* ---- CTA ---- */
-    .cta-section {
-      background: #0b1a33;
-      color: white;
-      padding: 4.5rem 0;
-      border-radius: 60px 60px 0 0;
-      margin-top: 2rem;
+    /* CTA y footer */
+
+    .cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 60px 0;
     }
 
-    .cta-grid {
+    .cta-inner {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 25px;
     }
 
-    .cta-text h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+    .cta h2 {
+      font-size: clamp(1.8rem,3vw,2.5rem);
+      line-height: 1.2;
+      margin-bottom: 10px;
     }
 
-    .cta-text p {
-      opacity: 0.8;
-      margin-top: 0.6rem;
-      font-size: 1.1rem;
-      max-width: 450px;
+    .cta p {
+      color: #c6d5e9;
     }
 
-    .cta-actions {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
+    .cta .btn {
+      background: #fff;
+      color: var(--navy);
+      flex-shrink: 0;
     }
 
-    .btn-light {
-      background: white;
-      border: none;
-      padding: 0.9rem 2.5rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: #0b1a33;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      transition: 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-light i {
-      color: #2563eb;
-    }
-
-    .btn-light:hover {
-      background: #eef4ff;
-      transform: scale(1.02);
-    }
-
-    .btn-outline-light {
-      background: transparent;
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-      padding: 0.9rem 2.5rem;
-      border-radius: 60px;
-      font-weight: 600;
-      color: white;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      transition: 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-outline-light:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: white;
-    }
-
-    /* ---- FOOTER ---- */
-    footer {
-      background: #0b1a33;
-      padding: 2.5rem 0 1.5rem;
+    .site-footer {
+      padding: 30px 0 20px;
       color: #cbd5e1;
-      border-top: 1px solid #1e2d4a;
+      background: #07152b;
     }
 
-    .footer-content {
+    .footer-top {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 25px;
+      padding-bottom: 23px;
     }
 
     .footer-logo {
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
-      align-items: flex-start;
       text-decoration: none;
-      line-height: 1;
-    }
-
-    .footer-logo .brand {
       font-weight: 800;
-      font-size: 1.5rem;
-      letter-spacing: -0.5px;
-      color: white;
-      font-family: 'Inter', sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+      color: #fff;
     }
 
-    .footer-logo .brand .highlight {
-      color: #2563eb;
+    .footer-logo span {
+      color: #60a5fa;
     }
 
-    .footer-logo .subtitle {
-      font-size: 0.55rem;
-      font-weight: 700;
+    .footer-logo small {
+      font-size: .6rem;
       letter-spacing: 1.5px;
+      margin-top: 5px;
       color: #94a3b8;
-      text-transform: uppercase;
-      margin-top: 1px;
-      font-family: 'Inter', sans-serif;
     }
 
     .footer-links {
       display: flex;
-      gap: 2.5rem;
-      font-weight: 400;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .footer-links a {
       color: #cbd5e1;
+      font-size: .88rem;
       text-decoration: none;
-      transition: color 0.2s;
     }
 
     .footer-links a:hover {
-      color: white;
+      color: #fff;
     }
 
     .footer-copy {
-      font-size: 0.9rem;
-      opacity: 0.7;
-      margin-top: 1.5rem;
+      border-top: 1px solid #20304a;
+      padding-top: 18px;
       text-align: center;
-      width: 100%;
-      border-top: 1px solid #1e2d4a;
-      padding-top: 1.5rem;
+      color: #94a3b8;
+      font-size: .8rem;
     }
 
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 992px) {
-      .about-grid,
-      .contact-wrapper {
+    /* Responsive */
+
+    @media (max-width: 1100px) {
+      .hero {
         grid-template-columns: 1fr;
       }
-      .infra-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+
+      .hero-copy {
+        max-width: 850px;
       }
-      .infra-list {
-        align-items: stretch;
-      }
-      .infra-list-item {
+
+      .hero-visual {
         width: 100%;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: .84rem;
       }
     }
 
     @media (max-width: 780px) {
-      .hamburger {
-        display: flex;
+      .container {
+        padding: 0 20px;
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .logo img {
+        width: 165px;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 18px 24px 24px;
         flex-direction: column;
-        width: 100%;
-        background: white;
-        padding: 1.5rem 0;
-        gap: 1.5rem;
-        align-items: center;
-        border-top: 1px solid #e9edf5;
-        margin-top: 0.5rem;
+        align-items: stretch;
+        gap: 5px;
       }
 
       .nav-links.open {
         display: flex;
       }
 
-      .hero-content h1 {
-        font-size: 2.5rem;
+      .nav-links a {
+        padding: 11px 8px;
+        font-size: .95rem;
       }
-      .section-header h2 {
-        font-size: 2rem;
-      }
-      .cta-text h2 {
-        font-size: 2rem;
-      }
-      .footer-links {
-        flex-wrap: wrap;
-        gap: 1.2rem;
-        margin-top: 1rem;
-      }
-      .faq-item {
-        border-radius: 24px;
-        padding: 1.2rem 1.5rem;
-      }
-      .contact-form {
-        padding: 1.8rem;
-      }
-      .card-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .infra-header h2 {
-        font-size: 2rem;
-      }
-      .hero-badges {
-        gap: 0.6rem;
-      }
-      .hero-badges .badge-icon {
-        padding: 0.3rem 0.7rem;
-        font-size: 0.6rem;
-      }
-      .hero-badges .badge-icon i {
-        font-size: 1rem;
-      }
-      .modal-content {
-        padding: 1.8rem;
-        margin: 1rem;
-      }
-      .logo .brand {
-        font-size: 1.5rem;
-      }
-      .logo .subtitle {
-        font-size: 0.55rem;
-      }
-      .footer-logo .brand {
-        font-size: 1.3rem;
-      }
-      .footer-logo .subtitle {
-        font-size: 0.5rem;
-      }
-    }
 
-    @media (max-width: 550px) {
-      .card-grid {
-        grid-template-columns: 1fr;
+      .nav-links .nav-cta {
+        text-align: center;
+        margin-top: 8px;
       }
-      .container {
-        padding: 0 1.2rem;
+
+      .hero {
+        padding-top: 38px;
+        padding-bottom: 50px;
+        gap: 28px;
       }
-      .hero-image i {
-        font-size: 5rem;
+
+      .hero h1 {
+        font-size: clamp(2.7rem,8vw,4rem);
+        letter-spacing: -1.8px;
       }
-      .stat-grid {
-        gap: 1.5rem;
+
+      .hero-benefits {
+        gap: 12px;
       }
-      .btn-primary,
-      .btn-light,
-      .btn-outline-light,
-      .contact-form .btn-submit {
-        width: 100%;
-        justify-content: center;
-      }
-      .infra-visual .badge-container {
+
+      .benefit {
         flex-direction: column;
-        align-items: center;
       }
-      .infra-list-item {
-        width: 100%;
-        justify-content: center;
-      }
-      .about-grid {
+
+      .dashboard-layout {
         grid-template-columns: 1fr;
       }
-      .hero-badges {
-        flex-wrap: wrap;
+
+      .dashboard-menu {
+        display: grid;
+        grid-template-columns: repeat(4,minmax(0,1fr));
+      }
+
+      .dashboard-menu span {
         justify-content: center;
-      }
-      .logo .brand {
-        font-size: 1.3rem;
-      }
-      .logo .subtitle {
-        font-size: 0.5rem;
-        letter-spacing: 1px;
-      }
-      .footer-logo .brand {
-        font-size: 1.1rem;
-      }
-      .footer-logo .subtitle {
-        font-size: 0.45rem;
-        letter-spacing: 1px;
-      }
-    }
-  
-    /* ---- LOGO REAL ALVATECHMX ---- */
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: auto;
-      height: 76px;
-      flex-shrink: 0;
-    }
-
-    .logo .real-logo {
-      display: block;
-      width: 145px;
-      height: 70px;
-      object-fit: contain;
-      object-position: center;
-    }
-
-    @media (max-width: 768px) {
-      .logo {
-        height: 62px;
+        font-size: .63rem;
       }
 
-      .logo .real-logo {
-        width: 120px;
-        height: 56px;
+      .managed {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+
+      .infra-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section {
+        padding: 68px 0;
       }
     }
 
+    @media (max-width: 540px) {
+      .container {
+        padding: 0 17px;
+      }
+
+      .hero h1 {
+        font-size: 2.65rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit {
+        flex-direction: row;
+      }
+
+      .hero-visual {
+        padding: 9px;
+        border-radius: 20px;
+      }
+
+      .dashboard {
+        padding: 10px;
+        border-radius: 14px;
+      }
+
+      .dashboard-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .dashboard-menu {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .dashboard-stats {
+        gap: 6px;
+      }
+
+      .dashboard-stat {
+        padding: 9px;
+      }
+
+      .dashboard-stat strong {
+        font-size: 1.25rem;
+      }
+
+      .dashboard-charts {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-categories {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .service-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 24px;
+      }
+
+      .managed {
+        padding: 25px 20px;
+        border-radius: 22px;
+      }
+
+      .managed-list {
+        grid-template-columns: 1fr;
+      }
+
+      .infra-feature,
+      .about-panel {
+        padding: 25px;
+      }
+
+      .contact-form {
+        padding: 21px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-field.full {
+        grid-column: auto;
+      }
+
+      .section-heading {
+        margin-bottom: 32px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header>
+  <header class="site-header">
     <div class="container navbar">
-      <a href="#inicio" class="logo" aria-label="AlvaTechMX">
-        <img src="img/alvatechmx-logo.jpg" alt="AlvaTechMX · Soluciones Tecnológicas" class="real-logo">
+      <a class="logo" href="#inicio" aria-label="AlvaTechMX, inicio">
+        <img src="img/alvatechmx-logo.jpg" alt="AlvaTechMX Soluciones Tecnológicas">
       </a>
-      <button class="hamburger" id="menuToggle" aria-label="Menú">
-        <span></span><span></span><span></span>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fas fa-bars"></i>
       </button>
-      <div class="nav-links" id="navLinks">
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
-        <a href="#servicios">Software</a>
+        <a href="#servicios">Servicios</a>
         <a href="#infraestructura">Infraestructura</a>
-        <a href="#about">Nosotros</a>
+        <a href="#nosotros">Nosotros</a>
         <a href="#recursos">Recursos</a>
         <a href="#faq">FAQ</a>
-        <a href="#contacto" class="btn-outline-nav"><i class="fas fa-rocket"></i> Contacto</a>
-      </div>
+        <a href="#contacto" class="nav-cta">Solicitar cotización</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="inicio" class="hero container">
-      <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-bolt" style="margin-right: 6px;"></i> Innovación continua</div>
-        <h1>Potencia tu negocio con <span>AlvaTechMX</span></h1>
-        <p>Renta y venta de software de vanguardia e infraestructura TI escalable. Soluciones diseñadas para empresas que crecen.</p>
-        <div class="hero-actions">
-          <a href="#contacto" class="btn-primary"><i class="fas fa-arrow-right"></i> Cotizar ahora</a>
+    <!-- PORTADA -->
+    <section class="container hero" id="inicio">
+      <div class="hero-copy">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Administración y soporte de TI
         </div>
-        <div class="stat-grid">
-          <div class="stat-item"><span class="stat-number">+150</span><span class="stat-label">empresas confían</span></div>
-          <div class="stat-item"><span class="stat-number">99.9%</span><span class="stat-label">uptime garantizado</span></div>
-          <div class="stat-item"><span class="stat-number">24/7</span><span class="stat-label">soporte experto</span></div>
+
+        <h1>Tu TI bajo control. Tu negocio <span>en marcha.</span></h1>
+
+        <p class="hero-description">
+          Soluciones tecnológicas para PYMES y corporativos, con administración
+          de infraestructura, soporte técnico y monitoreo adaptados a las
+          necesidades de tu empresa.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">
+            <i class="fas fa-headset"></i> Solicitar cotización
+          </a>
+          <a class="btn btn-secondary" href="#servicios">
+            <i class="far fa-file-alt"></i> Conocer servicios
+          </a>
+        </div>
+
+        <div class="hero-benefits">
+          <div class="benefit">
+            <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+            <div>
+              <strong>Soporte técnico</strong>
+              <small>Remoto y en sitio, según el servicio.</small>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon"><i class="fas fa-cogs"></i></div>
+            <div>
+              <strong>Administración de TI</strong>
+              <small>Redes, servidores, equipos y plataformas.</small>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon"><i class="fas fa-chart-bar"></i></div>
+            <div>
+              <strong>Enfoque empresarial</strong>
+              <small>Soluciones acordes a tu operación.</small>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-image">
-        <i class="fas fa-cloud-upload-alt"></i>
-        <p style="font-weight: 600; color: #0b1a33;">Infraestructura híbrida · Multi-cloud · Física</p>
-        <div class="hero-badges">
-          <span class="badge-icon"><i class="fas fa-cloud"></i> Cloud</span>
-          <span class="badge-icon"><i class="fas fa-server"></i> Servidores</span>
-          <span class="badge-icon"><i class="fas fa-network-wired"></i> Redes</span>
-          <span class="badge-icon"><i class="fas fa-database"></i> Data Center</span>
+
+      <!-- Panel ilustrativo: sus cifras no representan datos en vivo -->
+      <div class="hero-visual">
+        <div class="dashboard">
+          <div class="dashboard-top">
+            <div class="dashboard-brand">
+              <i class="fas fa-cloud"></i>
+              <span>alvatechmx</span>
+            </div>
+            <div class="dashboard-label">
+              <span></span> Panel ilustrativo de servicios
+            </div>
+          </div>
+
+          <div class="dashboard-layout">
+            <aside class="dashboard-menu" aria-label="Secciones ilustrativas">
+              <span class="selected"><i class="fas fa-home"></i> Inicio</span>
+              <span><i class="fas fa-chart-line"></i> Monitoreo</span>
+              <span><i class="fas fa-server"></i> Dispositivos</span>
+              <span><i class="fas fa-users"></i> Usuarios</span>
+              <span><i class="fas fa-database"></i> Respaldos</span>
+              <span><i class="fas fa-shield-alt"></i> Seguridad</span>
+              <span><i class="fas fa-file-alt"></i> Reportes</span>
+              <span><i class="fas fa-headset"></i> Soporte</span>
+            </aside>
+
+            <div class="dashboard-main">
+              <div class="dashboard-stats">
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-label"><i class="fas fa-desktop"></i> Dispositivos</div>
+                  <strong>48</strong>
+                  <small>Ejemplo visual</small>
+                </div>
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-label"><i class="fas fa-network-wired"></i> Sitios</div>
+                  <strong>29</strong>
+                  <small>Ejemplo visual</small>
+                </div>
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-label"><i class="fas fa-user-check"></i> Usuarios</div>
+                  <strong>152</strong>
+                  <small>Ejemplo visual</small>
+                </div>
+                <div class="dashboard-stat">
+                  <div class="dashboard-stat-label"><i class="fas fa-database"></i> Respaldos</div>
+                  <strong>100%</strong>
+                  <small>Ejemplo visual</small>
+                </div>
+              </div>
+
+              <div class="dashboard-charts">
+                <div class="chart-card">
+                  <h3>Estado de la infraestructura</h3>
+
+                  <svg class="chart-svg" viewBox="0 0 320 145" role="img" aria-label="Gráfica ilustrativa de actividad de infraestructura">
+                    <g stroke="#294767" stroke-width="1">
+                      <line x1="10" y1="25" x2="310" y2="25"/>
+                      <line x1="10" y1="55" x2="310" y2="55"/>
+                      <line x1="10" y1="85" x2="310" y2="85"/>
+                      <line x1="10" y1="115" x2="310" y2="115"/>
+                    </g>
+                    <path d="M10 95 C30 82 42 100 60 77 S95 64 115 79 S145 99 165 63 S205 46 225 61 S270 82 310 35"
+                          fill="none" stroke="#24d5d0" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M10 110 C35 103 45 87 65 98 S100 115 125 94 S160 83 185 101 S220 113 245 91 S280 77 310 70"
+                          fill="none" stroke="#4285ff" stroke-width="3" stroke-linecap="round"/>
+                    <g fill="#91afd0" font-size="10">
+                      <text x="10" y="137">00:00</text>
+                      <text x="82" y="137">06:00</text>
+                      <text x="154" y="137">12:00</text>
+                      <text x="226" y="137">18:00</text>
+                    </g>
+                  </svg>
+
+                  <div class="chart-legend">
+                    <span><i></i> Red</span>
+                    <span><i></i> Servidores</span>
+                  </div>
+                </div>
+
+                <div class="chart-card">
+                  <h3>Servicios de TI</h3>
+                  <div class="service-status-list">
+                    <div class="service-status">
+                      <span><i class="fas fa-network-wired"></i> Redes</span>
+                      <strong>Monitoreo</strong>
+                    </div>
+                    <div class="service-status">
+                      <span><i class="fas fa-server"></i> Servidores</span>
+                      <strong>Gestión</strong>
+                    </div>
+                    <div class="service-status">
+                      <span><i class="fas fa-shield-alt"></i> Seguridad</span>
+                      <strong>Protección</strong>
+                    </div>
+                    <div class="service-status">
+                      <span><i class="fas fa-cloud"></i> Nube</span>
+                      <strong>Administración</strong>
+                    </div>
+                    <div class="service-status">
+                      <span><i class="fas fa-headset"></i> Soporte</span>
+                      <strong>Atención</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="visual-categories">
+          <div class="visual-category">
+            <i class="fas fa-cloud"></i>
+            <strong>Cloud</strong>
+            <span>AWS · Azure<br>Google Cloud</span>
+          </div>
+          <div class="visual-category">
+            <i class="fas fa-server"></i>
+            <strong>Servidores</strong>
+            <span>Físicos y virtuales</span>
+          </div>
+          <div class="visual-category">
+            <i class="fas fa-network-wired"></i>
+            <strong>Redes</strong>
+            <span>LAN · WAN · VPN<br>Wi-Fi · SD-WAN</span>
+          </div>
+          <div class="visual-category">
+            <i class="fas fa-database"></i>
+            <strong>Data Center</strong>
+            <span>Monitoreo y<br>respaldos</span>
+          </div>
+        </div>
+
+        <p class="demo-note">Visualización ilustrativa; no representa monitoreo en tiempo real.</p>
       </div>
     </section>
 
     <!-- SERVICIOS -->
-    <section id="servicios" class="services">
+    <section class="section section-white" id="servicios">
       <div class="container">
-        <div class="section-header">
-          <h2>Soluciones que <span style="background: linear-gradient(135deg,#2563eb,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">impulsan</span> tu TI</h2>
-          <p>Desde software a medida hasta infraestructura robusta, todo en un mismo ecosistema.</p>
+        <div class="section-heading">
+          <span class="eyebrow">Soluciones tecnológicas</span>
+          <h2>Todo lo que tu empresa necesita para su <span class="gradient-text">operación de TI</span></h2>
+          <p>Servicios para organizaciones que necesitan soporte, infraestructura confiable y una administración tecnológica acorde a su operación.</p>
         </div>
-        <div class="card-grid">
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-code"></i></div>
-            <h3>Software a medida</h3>
-            <p>Desarrollamos plataformas escalables, ERPs, CRMs y apps nativas para tu industria.</p>
-            <span class="service-tag">Venta / Renta</span>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-server"></i></div>
-            <h3>Infraestructura TI</h3>
-            <p>Servidores, redes, storage y cloud privado. Diseñamos tu centro de datos.</p>
-            <span class="service-tag">Renta mensual</span>
-          </div>
-          <div class="service-card">
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-headset"></i></div>
+            <h3>Servicios administrados de TI</h3>
+            <p>Soporte mensual, atención a usuarios, administración de equipos y plataformas tecnológicas.</p>
+            <span class="service-tag">Servicio mensual</span>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+            <h3>Redes e infraestructura</h3>
+            <p>Diseño, instalación, configuración y administración de redes LAN, WAN, Wi-Fi, VPN y conectividad empresarial.</p>
+            <span class="service-tag">Redes empresariales</span>
+          </article>
+
+          <article class="service-card">
             <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
             <h3>Ciberseguridad</h3>
-            <p>Protegemos tu información con firewalls, zero trust y monitoreo 24/7.</p>
-            <span class="service-tag">Seguridad integral</span>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-robot"></i></div>
-            <h3>Automatización & AI</h3>
-            <p>Inteligencia artificial y RPA para optimizar procesos y reducir costos.</p>
-            <span class="service-tag">Innovación</span>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-eye"></i></div>
-            <h3>Monitoreo de infraestructura</h3>
-            <p>Software de monitoreo de servidores, equipos y recursos conectados a tu red centralizando y garantizando que todo esté online siempre.</p>
-            <span class="service-tag">Monitoreo 24/7</span>
-          </div>
-          <div class="service-card">
+            <p>Soluciones de protección, seguridad perimetral, antivirus empresarial y medidas de protección para los recursos tecnológicos.</p>
+            <span class="service-tag">Protección de TI</span>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-server"></i></div>
+            <h3>Servidores y respaldos</h3>
+            <p>Implementación y administración de servidores físicos y virtuales, almacenamiento y estrategias de respaldo.</p>
+            <span class="service-tag">Continuidad operativa</span>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-cloud"></i></div>
+            <h3>Nube y DevOps</h3>
+            <p>Apoyo en entornos de nube, automatización de infraestructura, despliegues y operación de plataformas.</p>
+            <span class="service-tag">Cloud y automatización</span>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-laptop"></i></div>
+            <h3>Soporte técnico</h3>
+            <p>Atención a incidencias, configuración de equipos, apoyo a usuarios y mantenimiento de estaciones de trabajo.</p>
+            <span class="service-tag">Soporte a usuarios</span>
+          </article>
+
+          <article class="service-card">
             <div class="service-icon"><i class="fas fa-certificate"></i></div>
             <h3>Licenciamiento de software</h3>
-            <p>Windows, Office, Windows Server, SQL Server, Antivirus entre otros.</p>
-            <span class="service-tag">Venta de licencias</span>
+            <p>Asesoría y suministro de licencias de software empresarial de acuerdo con las necesidades de cada organización.</p>
+            <span class="service-tag">Licencias de software</span>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-desktop"></i></div>
+            <h3>Venta de equipos</h3>
+            <p>Equipos de cómputo, servidores, componentes, redes y accesorios tecnológicos para empresas.</p>
+            <span class="service-tag">Equipamiento empresarial</span>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Software y automatización</h3>
+            <p>Apoyo en desarrollo de soluciones de software, integración de herramientas y automatización de procesos.</p>
+            <span class="service-tag">Soluciones a medida</span>
+          </article>
+        </div>
+
+        <div class="managed">
+          <div>
+            <span class="eyebrow">Administración continua</span>
+            <h3>Tu área de TI, con un esquema de servicio adaptado a tu empresa</h3>
+            <p>El servicio administrado mensual puede estructurarse de acuerdo con los recursos tecnológicos que ya tienes o con las necesidades que buscas cubrir.</p>
+            <ul class="managed-list">
+              <li><i class="fas fa-check-circle"></i> Atención a usuarios</li>
+              <li><i class="fas fa-check-circle"></i> Gestión de dispositivos</li>
+              <li><i class="fas fa-check-circle"></i> Administración de plataformas</li>
+              <li><i class="fas fa-check-circle"></i> Seguimiento de incidencias</li>
+              <li><i class="fas fa-check-circle"></i> Seguridad y respaldos</li>
+              <li><i class="fas fa-check-circle"></i> Administración de infraestructura</li>
+            </ul>
+          </div>
+
+          <div class="managed-options">
+            <article class="managed-option">
+              <h4><i class="fas fa-building"></i> Con infraestructura propia</h4>
+              <p>Administramos y damos soporte a los equipos, servidores, redes y plataformas que tu empresa ya utiliza.</p>
+            </article>
+            <article class="managed-option">
+              <h4><i class="fas fa-cloud"></i> Sin infraestructura propia</h4>
+              <p>Definimos contigo los recursos necesarios y coordinamos las soluciones tecnológicas, herramientas y soporte que requiere tu operación.</p>
+            </article>
+            <a href="#contacto" class="btn btn-primary">Solicitar una propuesta <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- INFRAESTRUCTURA -->
-    <section id="infraestructura" class="infra-section">
-      <div class="container infra-container">
-        <div class="infra-header">
-          <h2><i class="fas fa-database"></i> Infraestructura que evoluciona</h2>
-          <p>Renta equipamiento de última generación con flexibilidad total. Escala según demanda sin inversión inicial.</p>
+    <section class="section" id="infraestructura">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Infraestructura empresarial</span>
+          <h2>Tecnología para una operación <span class="gradient-text">más sólida</span></h2>
+          <p>Soluciones para conectar, proteger y administrar los recursos tecnológicos de tu organización.</p>
         </div>
+
         <div class="infra-grid">
           <div class="infra-list">
-            <div class="infra-list-item"><i class="fas fa-server"></i> Servidores blade & rack</div>
-            <div class="infra-list-item"><i class="fas fa-cloud"></i> Nube híbrida y privada</div>
-            <div class="infra-list-item"><i class="fas fa-ethernet"></i> Redes de alta velocidad</div>
-            <div class="infra-list-item"><i class="fas fa-lock"></i> Seguridad perimetral</div>
+            <div class="infra-item"><i class="fas fa-server"></i> Servidores físicos y virtuales</div>
+            <div class="infra-item"><i class="fas fa-cloud"></i> Nube pública, privada e híbrida</div>
+            <div class="infra-item"><i class="fas fa-network-wired"></i> Redes LAN, WAN, Wi-Fi y VPN</div>
+            <div class="infra-item"><i class="fas fa-shield-alt"></i> Seguridad perimetral y endpoint</div>
+            <div class="infra-item"><i class="fas fa-database"></i> Almacenamiento y respaldos</div>
+            <div class="infra-item"><i class="fas fa-chart-line"></i> Monitoreo y administración</div>
           </div>
-          <div class="infra-visual">
-            <i class="fas fa-server icon-main"></i>
-            <h4>Centro de datos certificado</h4>
-            <div class="badge-container">
-              <span class="badge-item"><i class="fas fa-bolt"></i> Alta disponibilidad</span>
-              <span class="badge-item"><i class="fas fa-expand-arrows-alt"></i> Escalabilidad</span>
-              <span class="badge-item"><i class="fas fa-shield-alt"></i> Seguridad N+1</span>
-              <span class="badge-item"><i class="fas fa-chart-line"></i> Monitoreo 24/7</span>
+
+          <div class="infra-feature">
+            <i class="fas fa-sitemap"></i>
+            <h3>Infraestructura que evoluciona contigo</h3>
+            <p>Evaluamos las necesidades de tu empresa para plantear una solución acorde con su tamaño, operación, recursos y objetivos.</p>
+            <div class="infra-pills">
+              <span>Infraestructura física</span>
+              <span>Cloud</span>
+              <span>Conectividad</span>
+              <span>Seguridad</span>
+              <span>Respaldos</span>
+              <span>Soporte</span>
             </div>
-            <span class="highlight-tag"><i class="fas fa-check-circle"></i> Infraestructura como servicio</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE NOSOTROS -->
-    <section id="about" class="about-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Sobre nosotros</h2>
-          <p>Conoce al equipo que impulsa la transformación digital de las empresas.</p>
+    <!-- NOSOTROS -->
+    <section class="section section-white" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">AlvaTechMX</span>
+          <h2>Tecnología alineada con las necesidades de tu negocio</h2>
+          <p>En AlvaTechMX ayudamos a PYMES y corporativos a resolver sus necesidades tecnológicas mediante servicios de soporte, infraestructura y administración de TI.</p>
+          <p>Buscamos que cada organización cuente con soluciones acordes a sus recursos, operación y objetivos, ya sea que tenga infraestructura propia o necesite apoyo para definirla.</p>
+
+          <div class="about-points">
+            <div class="about-point"><i class="fas fa-check-circle"></i><span>Servicios adaptados a las necesidades de cada empresa.</span></div>
+            <div class="about-point"><i class="fas fa-check-circle"></i><span>Soporte técnico y administración de recursos de TI.</span></div>
+            <div class="about-point"><i class="fas fa-check-circle"></i><span>Infraestructura, seguridad, nube y licenciamiento.</span></div>
+            <div class="about-point"><i class="fas fa-check-circle"></i><span>Propuestas comerciales de acuerdo con el alcance requerido.</span></div>
+          </div>
         </div>
-        <div class="about-grid">
-          <div class="about-text">
-            <h3>Innovación con propósito</h3>
-            <p>En AlvaTechMX combinamos más de 10 años de experiencia en TI con un enfoque centrado en el cliente. Somos una empresa Mexicana dedicada a crear soluciones de software e infraestructura que realmente resuelven los desafíos de tu negocio.</p>
-            <div class="highlight"><i class="fas fa-check-circle"></i> Venta de servidores y equipo con marcas certificadas</div>
-            <div class="highlight"><i class="fas fa-check-circle"></i> Más de 60 proyectos exitosos</div>
-            <div class="highlight"><i class="fas fa-check-circle"></i> Soporte 24/7 con ingenieros especializados</div>
-            <p style="margin-top: 1.5rem;">Nuestra misión es democratizar la tecnología de clase empresarial, haciéndola accesible y escalable para todo tipo de organizaciones.</p>
-          </div>
-          <div class="about-image">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>Cobertura en toda la<br>República Mexicana</p>
-            <span style="display: inline-block; background: #2563eb20; padding: 0.4rem 1.2rem; border-radius: 40px; font-weight: 600; color: #2563eb; font-size: 0.8rem; margin-top: 0.8rem;"><i class="fas fa-star"></i> 4.9/5 satisfacción</span>
-          </div>
+
+        <div class="about-panel">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Una sola visión para tu TI</h3>
+          <p>Soporte, infraestructura y servicios tecnológicos coordinados para acompañar la operación de tu empresa.</p>
         </div>
       </div>
     </section>
 
-    <!-- RECURSOS / BLOG con modal -->
-    <section id="recursos" class="blog-section">
+    <!-- RECURSOS -->
+    <section class="section" id="recursos">
       <div class="container">
-        <div class="section-header">
+        <div class="section-heading">
+          <span class="eyebrow">Conocimiento tecnológico</span>
           <h2>Recursos y perspectivas</h2>
-          <p>Artículos, guías y novedades del mundo tecnológico.</p>
+          <p>Temas que pueden ayudarte a tomar mejores decisiones sobre la tecnología de tu empresa.</p>
         </div>
-        <div class="blog-grid">
-          <div class="blog-card" data-modal="modal1">
-            <span class="tag">Infraestructura</span>
-            <h4>5 tendencias en cloud híbrido para 2026</h4>
-            <p>Descubre cómo las empresas están adoptando modelos flexibles que combinan nubes públicas y privadas.</p>
-            <span class="read-more">Leer más <i class="fas fa-arrow-right"></i></span>
-          </div>
-          <div class="blog-card" data-modal="modal2">
-            <span class="tag">Seguridad</span>
-            <h4>Zero Trust: más allá del perímetro</h4>
-            <p>Implementa una estrategia de confianza cero en tu organización para proteger tus activos digitales.</p>
-            <span class="read-more">Leer más <i class="fas fa-arrow-right"></i></span>
-          </div>
-          <div class="blog-card" data-modal="modal3">
-            <span class="tag">Software</span>
-            <h4>El futuro del desarrollo low-code</h4>
-            <p>Acelera la creación de aplicaciones con herramientas visuales que reducen drásticamente los tiempos.</p>
-            <span class="read-more">Leer más <i class="fas fa-arrow-right"></i></span>
-          </div>
+
+        <div class="resource-grid">
+          <article class="resource-card">
+            <span class="resource-tag">Infraestructura</span>
+            <h3>¿Cuándo conviene una nube híbrida?</h3>
+            <p>Conoce las consideraciones de costos, operación, conectividad y seguridad al combinar infraestructura propia con servicios en la nube.</p>
+          </article>
+
+          <article class="resource-card">
+            <span class="resource-tag">Ciberseguridad</span>
+            <h3>Buenas prácticas para proteger tu empresa</h3>
+            <p>Revisa medidas como actualizaciones, control de acceso, respaldos, protección de equipos y capacitación de usuarios.</p>
+          </article>
+
+          <article class="resource-card">
+            <span class="resource-tag">Servicios administrados</span>
+            <h3>¿Qué considerar al contratar soporte de TI?</h3>
+            <p>Define el alcance, los horarios, los canales de atención, las responsabilidades y los tiempos de respuesta de tu servicio.</p>
+          </article>
         </div>
       </div>
     </section>
-
-    <!-- MODALES -->
-    <div class="modal-overlay" id="modal1">
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <span class="tag">Infraestructura</span>
-        <h3>5 tendencias en cloud híbrido para 2026</h3>
-        <p>El cloud híbrido se ha consolidado como la arquitectura preferida por las empresas que buscan flexibilidad y control. Para 2026, cinco tendencias están marcando el rumbo:</p>
-        <p><strong>1. Edge computing integrado:</strong> La computación en el borde se fusiona con el cloud híbrido para procesar datos más cerca de su origen, reduciendo latencias y mejorando el rendimiento de aplicaciones IoT y tiempo real.</p>
-        <p><strong>2. Kubernetes como estándar:</strong> La orquestación de contenedores se ha convertido en el pilar de la portabilidad entre nubes, permitiendo a las empresas mover cargas de trabajo sin fricción entre entornos on-premise y cloud.</p>
-        <p><strong>3. FinOps y optimización de costos:</strong> La gestión financiera del cloud es ahora una prioridad. Las organizaciones implementan estrategias de FinOps para monitorear, optimizar y predecir gastos en infraestructura híbrida.</p>
-        <p><strong>4. Seguridad zero trust en capas:</strong> El modelo de confianza cero se extiende a toda la infraestructura híbrida, con políticas de acceso granular y verificación continua de identidades.</p>
-        <p><strong>5. Automatización impulsada por IA:</strong> La inteligencia artificial gestiona el aprovisionamiento, escalado y reparación automática de recursos, reduciendo la intervención manual y mejorando la eficiencia.</p>
-        <div class="bibliography">
-          <h5>Bibliografía</h5>
-          <ul>
-            <li>Gartner (2025). <em>Hybrid Cloud Infrastructure Market Guide</em>. Gartner Research.</li>
-            <li>RightScale (2025). <em>State of the Cloud Report 2025</em>. Flexera.</li>
-            <li>Mell, P., & Grance, T. (2024). <em>The NIST Definition of Cloud Computing</em>. National Institute of Standards and Technology.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-overlay" id="modal2">
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <span class="tag">Seguridad</span>
-        <h3>Zero Trust: más allá del perímetro</h3>
-        <p>El modelo Zero Trust (confianza cero) ha evolucionado de un concepto a una estrategia integral de ciberseguridad. Su principio fundamental: "nunca confiar, siempre verificar".</p>
-        <p><strong>¿Por qué Zero Trust?</strong> Tradicionalmente, la seguridad se basaba en un perímetro definido (firewalls, VPNs). Sin embargo, con el trabajo remoto, el cloud y los dispositivos móviles, el perímetro ha desaparecido. Zero Trust asume que cualquier usuario, dispositivo o red puede estar comprometido.</p>
-        <p><strong>Principios clave:</strong> Verificación continua de identidad y contexto, microsegmentación de redes, principio de mínimo privilegio, y monitoreo constante de actividad para detectar anomalías.</p>
-        <p><strong>Implementación práctica:</strong> Las organizaciones están adoptando soluciones como SASE (Secure Access Service Edge), autenticación multifactor (MFA) en todos los accesos, y políticas de acceso basadas en el riesgo en tiempo real.</p>
-        <div class="bibliography">
-          <h5>Bibliografía</h5>
-          <ul>
-            <li>Kindervag, J. (2024). <em>Zero Trust: The Complete Guide</em>. Forrester Research.</li>
-            <li>NIST (2025). <em>Zero Trust Architecture</em>. NIST Special Publication 800-207A.</li>
-            <li>Microsoft (2025). <em>Zero Trust Adoption Report 2025</em>. Microsoft Security.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-overlay" id="modal3">
-      <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <span class="tag">Software</span>
-        <h3>El futuro del desarrollo low-code</h3>
-        <p>El low-code está transformando la forma en que las empresas crean aplicaciones. Plataformas visuales permiten a desarrolladores y ciudadanos desarrolladores construir software con una fracción del código tradicional.</p>
-        <p><strong>Democratización del desarrollo:</strong> El low-code elimina barreras de entrada, permitiendo que equipos de negocio participen activamente en la creación de soluciones digitales sin depender completamente de TI.</p>
-        <p><strong>Integración con IA:</strong> Las plataformas modernas incorporan asistentes de IA que sugieren componentes, generan código automáticamente y optimizan flujos de trabajo, acelerando aún más el desarrollo.</p>
-        <p><strong>Escalabilidad empresarial:</strong> A diferencia de las primeras generaciones, las plataformas low-code actuales son robustas, permitiendo crear aplicaciones complejas, escalables y seguras que cumplen con estándares empresariales.</p>
-        <p><strong>Casos de uso:</strong> Desde aplicaciones internas de gestión hasta portales de cliente y herramientas de automatización de procesos, el low-code está presente en todos los sectores: banca, salud, retail y logística.</p>
-        <div class="bibliography">
-          <h5>Bibliografía</h5>
-          <ul>
-            <li>Forrester (2025). <em>The Forrester Wave: Low-Code Platforms</em>. Forrester Research.</li>
-            <li>Gartner (2025). <em>Magic Quadrant for Enterprise Low-Code Platforms</em>. Gartner.</li>
-            <li>Mendix (2024). <em>State of Low-Code Development 2024</em>. Mendix/Siemens.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
     <!-- FAQ -->
-    <section id="faq" class="faq-section">
+    <section class="section section-white" id="faq">
       <div class="container">
-        <div class="section-header">
-          <h2>Preguntas frecuentes</h2>
-          <p>Todo lo que necesitas saber para empezar con AlvaTechMX.</p>
+        <div class="section-heading">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Resolvemos tus dudas</h2>
+          <p>Información para conocer mejor nuestros servicios y cómo pueden adaptarse a tu empresa.</p>
         </div>
+
         <div class="faq-list">
-          <div class="faq-item">
-            <h4>¿Ofrecen soporte 24/7? <i class="fas fa-chevron-down"></i></h4>
-            <p>Sí, nuestro equipo de soporte está disponible las 24 horas, los 7 días de la semana, con respuesta en menos de 30 minutos.</p>
-          </div>
-          <div class="faq-item">
-            <h4>¿Puedo rentar solo infraestructura sin software? <i class="fas fa-chevron-down"></i></h4>
-            <p>Por supuesto. Ofrecemos servicios independientes: solo infraestructura, solo software, o paquetes integrados.</p>
-          </div>
-          <div class="faq-item">
-            <h4>¿Qué incluye el contrato de renta? <i class="fas fa-chevron-down"></i></h4>
-            <p>Incluye el equipo, mantenimiento preventivo, actualizaciones y soporte técnico. Sin costos ocultos.</p>
-          </div>
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué tipo de soporte ofrecen?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Ofrecemos opciones de soporte técnico remoto y en sitio. Los horarios, niveles de atención y tiempos de respuesta se definen de acuerdo con el servicio contratado.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Pueden administrar la infraestructura que ya tengo?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Sí. Podemos revisar las necesidades de tu organización y definir el alcance de administración y soporte para los equipos, servidores, redes y plataformas existentes.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué pasa si mi empresa no tiene infraestructura propia?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Podemos ayudarte a identificar los recursos tecnológicos necesarios y plantear una propuesta que contemple las herramientas, servicios y soporte requeridos.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Los servicios tienen un precio fijo?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Las soluciones se cotizan de acuerdo con el alcance, la cantidad de usuarios y equipos, la infraestructura involucrada y el nivel de servicio requerido.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              ¿Qué puede incluir un servicio administrado mensual?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Según la propuesta, puede incluir soporte a usuarios, administración de dispositivos, plataformas y redes, seguimiento de incidencias, monitoreo, seguridad y respaldos.
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="contact-section">
+    <section class="section" id="contacto">
       <div class="container">
-        <div class="section-header">
-          <h2>Contáctanos</h2>
-          <p>Completa el formulario y un asesor se comunicará contigo en menos de 24 horas.</p>
+        <div class="section-heading">
+          <span class="eyebrow">Hablemos de tu proyecto</span>
+          <h2>Cuéntanos qué necesita tu empresa</h2>
+          <p>Comparte tus datos y los detalles de tu necesidad para evaluar una solución adecuada.</p>
         </div>
-        <div class="contact-wrapper">
+
+        <div class="contact-grid">
           <div class="contact-info">
-            <h3>¿Listo para transformar tu TI?</h3>
-            <p>Déjanos tus datos y te ayudaremos a encontrar la solución perfecta para tu negocio.</p>
-            <div class="detail"><i class="fab fa-whatsapp"></i> +52 55 6655 6996</div>
-            <div class="detail"><i class="fas fa-envelope"></i> info@alvatechmx.com</div>
-            <div class="detail"><i class="fas fa-map-marker-alt"></i> Ciudad de México · Monterrey · Guadalajara</div>
+            <h3>¿Listo para mejorar tu operación de TI?</h3>
+            <p>Podemos revisar tus necesidades de soporte, infraestructura, seguridad y administración tecnológica.</p>
+
+            <div class="contact-detail">
+              <i class="fab fa-whatsapp"></i>
+              <a href="https://wa.me/525566556996" target="_blank" rel="noopener noreferrer">55 6655 6996</a>
+            </div>
+
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@alvatechmx.com">info@alvatechmx.com</a>
+            </div>
+
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Atención a empresas en México</span>
+            </div>
           </div>
+
           <form class="contact-form" id="contactForm" action="https://formsubmit.co/info@alvatechmx.com" method="POST">
-            <input type="hidden" name="_subject" value="Nuevo contacto desde AlvaTechMX.com">
-            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nueva solicitud de contacto - AlvaTechMX">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://alvatechmx.com/?enviado=1">
-            <label for="nombre">Nombre completo *</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
 
-            <label for="email">Correo electrónico *</label>
-            <input type="email" id="email" name="email" placeholder="tú@empresa.com" required />
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+              </div>
 
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="55 1234 5678" />
+              <div class="form-field">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
 
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
+              <div class="form-field">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+              </div>
 
-            <label for="interes">¿Qué te interesa?</label>
-            <select id="interes" name="interes">
-              <option value="software">Software a medida</option>
-              <option value="infraestructura">Infraestructura TI</option>
-              <option value="seguridad">Ciberseguridad</option>
-              <option value="automatizacion">Automatización / AI</option>
-              <option value="monitoreo">Monitoreo de infraestructura</option>
-              <option value="licenciamiento">Licenciamiento de software</option>
-              <option value="todo">Paquete completo</option>
-            </select>
+              <div class="form-field">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" autocomplete="organization">
+              </div>
 
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+              <div class="form-field full">
+                <label for="interes">¿Qué servicio te interesa?</label>
+                <select id="interes" name="servicio">
+                  <option value="Servicios administrados mensuales de TI">Servicios administrados mensuales de TI</option>
+                  <option value="Soporte técnico">Soporte técnico a usuarios y equipos</option>
+                  <option value="Redes e infraestructura">Redes e infraestructura TI</option>
+                  <option value="Servidores y respaldos">Servidores y respaldos</option>
+                  <option value="Ciberseguridad">Ciberseguridad</option>
+                  <option value="Nube y DevOps">Nube y DevOps</option>
+                  <option value="Licenciamiento de software">Licenciamiento de software</option>
+                  <option value="Venta de equipos">Venta de equipos</option>
+                  <option value="Software y automatización">Software y automatización</option>
+                  <option value="Asesoría general">Necesito asesoría sobre varias soluciones</option>
+                </select>
+              </div>
 
-            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
-            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #64748b;">* Campos obligatorios. Te contactaremos en menos de 24h.</p>
+              <div class="form-field full">
+                <label for="infraestructuraPropia">¿Tu empresa cuenta con infraestructura de TI propia?</label>
+                <select id="infraestructuraPropia" name="infraestructura_propia">
+                  <option value="Sí, contamos con infraestructura propia">Sí, contamos con infraestructura propia</option>
+                  <option value="No, necesitamos que nos orienten">No, necesitamos orientación</option>
+                  <option value="Parcialmente">Parcialmente</option>
+                  <option value="No aplica">No aplica</option>
+                </select>
+              </div>
+
+              <div class="form-field full">
+                <label for="mensaje">Cuéntanos sobre tu necesidad</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu proyecto o necesidad de TI."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              <i class="fas fa-paper-plane"></i> Enviar solicitud
+            </button>
+
+            <p class="form-note">Al enviar, tus datos se utilizarán para atender esta solicitud comercial.</p>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container cta-grid">
-        <div class="cta-text">
-          <h2>¿Listo para dar el siguiente paso?</h2>
-          <p>AlvaTechMX combina software inteligente e infraestructura robusta. Contáctanos hoy.</p>
+    <!-- CTA FINAL -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>Tu tecnología debe impulsar tu negocio.</h2>
+          <p>Hablemos sobre el soporte y la infraestructura que necesita tu empresa.</p>
         </div>
-        <div class="cta-actions">
-          <a href="#contacto" class="btn-light"><i class="fas fa-calendar-check"></i> Agendar asesoría</a>
-          <a href="#contacto" class="btn-outline-light"><i class="fas fa-phone-alt"></i> Llamar ahora</a>
-        </div>
+        <a class="btn" href="#contacto"><i class="fas fa-arrow-right"></i> Solicitar cotización</a>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
-        <a href="#inicio" class="footer-logo">
-          <span class="brand">alvatech<span class="highlight">mx</span></span>
-          <span class="subtitle">SOLUCIONESTECNOLOGICAS</span>
+      <div class="footer-top">
+        <a class="footer-logo" href="#inicio">
+          alvatech<span>mx</span>
+          <small>SOLUCIONES TECNOLÓGICAS</small>
         </a>
-        <div class="footer-links">
-          <a href="#servicios">Software</a>
+
+        <nav class="footer-links" aria-label="Enlaces del pie de página">
+          <a href="#servicios">Servicios</a>
           <a href="#infraestructura">Infraestructura</a>
-          <a href="#about">Nosotros</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#faq">FAQ</a>
           <a href="#contacto">Contacto</a>
-        </div>
+        </nav>
       </div>
+
       <div class="footer-copy">
-        &copy; 2026 AlvaTechMX · Soluciones Tecnológicas
+        © <span id="currentYear">2026</span> AlvaTechMX · Soluciones Tecnológicas
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Menú hamburguesa
-      const menuToggle = document.getElementById('menuToggle');
-      const navLinks = document.getElementById('navLinks');
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
 
-      menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('open');
-      });
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+          const isOpen = navLinks.classList.toggle("open");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
 
-      const links = navLinks.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('click', function() {
-          navLinks.classList.remove('open');
+          const icon = menuToggle.querySelector("i");
+          if (icon) {
+            icon.classList.toggle("fa-bars", !isOpen);
+            icon.classList.toggle("fa-xmark", isOpen);
+          }
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            navLinks.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            const icon = menuToggle.querySelector("i");
+            if (icon) {
+              icon.classList.add("fa-bars");
+              icon.classList.remove("fa-xmark");
+            }
+          });
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+            navLinks.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            const icon = menuToggle.querySelector("i");
+            if (icon) {
+              icon.classList.add("fa-bars");
+              icon.classList.remove("fa-xmark");
+            }
+          }
+        });
+      }
+
+      // Preguntas frecuentes: abrir y cerrar respuestas.
+      document.querySelectorAll(".faq-question").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const answer = button.nextElementSibling;
+          const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+          button.setAttribute("aria-expanded", String(!isExpanded));
+          answer.classList.toggle("open", !isExpanded);
         });
       });
 
-      // Formulario: alerta de envío
-      const form = document.getElementById('contactForm');
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('¡Gracias por contactarnos! Un asesor de AlvaTechMX se comunicará contigo en las próximas 24 horas.');
-        form.reset();
-      });
+      // Año automático en el pie de página.
+      const year = document.getElementById("currentYear");
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
 
-      // Modal para recursos
-      const modalOverlays = document.querySelectorAll('.modal-overlay');
-      const modalTriggers = document.querySelectorAll('.blog-card');
-      const modalCloses = document.querySelectorAll('.modal-close');
-
-      // Abrir modal
-      modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-          const modalId = this.dataset.modal;
-          const modal = document.getElementById(modalId);
-          if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-          }
-        });
-      });
-
-      // Cerrar modal (botón X)
-      modalCloses.forEach(btn => {
-        btn.addEventListener('click', function() {
-          const modal = this.closest('.modal-overlay');
-          if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-
-      // Cerrar modal (click fuera del contenido)
-      modalOverlays.forEach(overlay => {
-        overlay.addEventListener('click', function(e) {
-          if (e.target === this) {
-            this.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-
-      // Cerrar modal con tecla ESC
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          const activeModal = document.querySelector('.modal-overlay.active');
-          if (activeModal) {
-            activeModal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        }
-      });
+      // No interceptamos el formulario: debe enviarse a FormSubmit.
+      // El primer envío de FormSubmit puede requerir verificar el correo receptor.
     });
   </script>
 </body>
